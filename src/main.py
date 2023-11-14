@@ -198,7 +198,7 @@ class MainWindow(QMainWindow):
         if not(self.isTestStarted):
             self.startTime = time.time()
             self.incorrectWords = 0
-            self.countWords = len(self.levelText)
+            self.countWords = 0
             self.countCharacters = 1
             self.isTestStarted = True
             self.index = 0
@@ -213,7 +213,8 @@ class MainWindow(QMainWindow):
             else:
                 self.textBrowserTrainingEdit.insertHtml(f"<span style='color:rgb(128,62,70)'>{browserText} <\span>")
                 self.incorrectWords += 1
-        
+
+            self.countWords += 1
             self.levelText = self.levelText[1:]
             self.countCharacters += len(self.lineEditTraining.text())
             self.lineEditTraining.clear()
